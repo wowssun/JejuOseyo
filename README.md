@@ -210,5 +210,5 @@
 ### 블로그
 - 프로젝트를 경험하며 공부한 기록입니다.
 
-  [![hashnode](https://github.com/wowssun/jejuOseyo/assets/119738419/c95c2300-5109-4b94-b6c8-8964d396f915)]()
+  [![hashnode](https://github.com/wowssun/jejuOseyo/assets/119738419/c95c2300-5109-4b94-b6c8-8964d396f915)](https://wowssun.hashnode.dev/)
 
