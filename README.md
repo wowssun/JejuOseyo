@@ -1,4 +1,58 @@
-## 프로젝트 구조
+# 🍊혼저옵서예 - 제주도 관광지 숙박예매 시스템🍊
+
+![혼저옵서예 메인 페이지](https://github.com/wowssun/jejuOseyo/assets/119738419/db08db67-0a40-4745-b445-ce31869899d2)
+
+
+## 💡프로젝트 소개
+
+- 본 시스템은 제주도 지역 숙박 예매사이트입니다.
+- 회원은 제주도 숙소 검색,예약 및 결제, 리뷰를 작성할 수 있습니다.
+- 관심있는 숙소를 위시리스트에 담아둘 수 있으며, 장바구니에 추가할 수 있습니다.
+- 회원은 자유게시판에서 글 조회, 작성, 수정, 삭제가 가능합니다.
+- 호스트는 숙소 등록이 가능하고 등록된 숙소 정보를 수정하거나 삭제할 수 있습니다.
+
+## 📑개발 기간 및 개발 환경
+
+- **개발 기간** : 2023.07.21 ~ 2023.08.15
+- **개발 환경**
+
+<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+<img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white"><br>
+<img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">
+<img src="https://img.shields.io/badge/eclipse-2C2255?style=for-the-badge&logo=eclipseide&logoColor=white">
+<img src="https://img.shields.io/badge/Apache-Tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white"><br>
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
+
+
+## 📌 역할 분담 ( UI + 기능 )
+
+### 🍀김나라
+- **메인, 숙소, 리뷰, 위시리스트**
+	- 숙소 전체 목록,상세 조회, 검색, 등록, 수정, 삭제
+	- 리뷰 목록, 상세 조회, 등록, 수정, 삭제
+	- 위시리스트 전체 목록, 등록, 삭제
+
+### 🍀노지연
+- **자유게시판**
+	- 전체 목록, 상세 조회, 작성, 수정, 삭제
+
+### 🍀손지희
+- **일반, 회원, 호스트**
+	- 로그인 및 로그아웃, 회원가입, 아이디 및 비밀번호 찾기
+	- 마이페이지, 내 정보 수정, 탈퇴
+	- 호스트 신청, 목록, 승인 및 거절, 거절내역
+
+### 🍀우선제
+- **장바구니, 예약 및 결제**
+	- 장바구니 전체 목록, 등록, 삭제
+	- 예약 전체 목록, 상세 조회, 예약 정보 조회, 예약 및 결제, 예약취소 및 결제취소
+	- 아임포트 API
+
+## ⚒️ 프로젝트 구조
 
 ```
 📦 jejuOseyo
@@ -6,64 +60,9 @@
 ├─ .classpath
 ├─ .project
 ├─ .settings
-│  ├─ .jsdtscope
-│  ├─ org.eclipse.core.resources.prefs
-│  ├─ org.eclipse.jdt.core.prefs
-│  ├─ org.eclipse.wst.common.component
-│  ├─ org.eclipse.wst.common.project.facet.core.xml
-│  ├─ org.eclipse.wst.jsdt.ui.superType.container
-│  └─ org.eclipse.wst.jsdt.ui.superType.name
 ├─ README.md
-├─ build
-│  ├─ .DS_Store
-│  └─ classes
-│     └─ jejuOseyo
-│        ├─ controller
-│        │  ├─ CaYeController.class
-│        │  ├─ FreeRecordController.class
-│        │  ├─ MateController.class
-│        │  ├─ MemHoController.class
-│        │  └─ RoomController.class
-│        ├─ dao
-│        │  ├─ CartDAO.class
-│        │  ├─ FreeDAO.class
-│        │  ├─ HostDAO.class
-│        │  ├─ MateDAO.class
-│        │  ├─ MateapplyDAO.class
-│        │  ├─ MatecmDAO.class
-│        │  ├─ MatewishDAO.class
-│        │  ├─ MemberDAO.class
-│        │  ├─ ReviewDAO.class
-│        │  ├─ RggDAO.class
-│        │  ├─ RoomDAO.class
-│        │  └─ YeyakDAO.class
-│        ├─ filter
-│        │  ├─ EncodingFilter.class
-│        │  ├─ LogFilter.class
-│        │  └─ MemberFilter.class
-│        ├─ listener
-│        │  └─ DBCPInitListener.class
-│        ├─ util
-│        │  └─ DBConn.class
-│        └─ vo
-│           ├─ .DS_Store
-│           ├─ CartVO.class
-│           ├─ FreeVO.class
-│           ├─ HostVO.class
-│           ├─ MateVO.class
-│           ├─ MateapplyVO.class
-│           ├─ MatecmVO.class
-│           ├─ MatewishVO.class
-│           ├─ MemberVO.class
-│           ├─ PaymentVO.class
-│           ├─ ReviewVO.class
-│           ├─ RggVO.class
-│           ├─ RoomVO.class
-│           └─ YeyakVO.class
 └─ src
-   ├─ .DS_Store
    └─ main
-      ├─ .DS_Store
       ├─ java
       │  └─ jejuOseyo
       │     ├─ controller
@@ -109,17 +108,11 @@
       │        ├─ RoomVO.java
       │        └─ YeyakVO.java
       └─ webapp
-         ├─ .DS_Store
          ├─ META-INF
          │  ├─ MANIFEST.MF
          │  └─ context.xml
          ├─ WEB-INF
          │  ├─ lib
-         │  │  ├─ cos.jar
-         │  │  ├─ json-simple-1.1.1.jar
-         │  │  ├─ ojdbc11.jar
-         │  │  ├─ taglibs-standard-impl-1.2.5.jar
-         │  │  └─ taglibs-standard-spec-1.2.5.jar
          │  └─ web.xml
          ├─ admin
          │  ├─ adMyInfo.jsp
@@ -206,3 +199,15 @@
             ├─ yeyakDetail.jsp
             └─ yeyakList.jsp
 ```
+
+## 🔍 팀 PPT
+### 팀 PPT
+- 자세한 작업 과정과 완성 화면을 볼 수 있습니다.
+
+[![구글 드라이브](https://github.com/wowssun/jejuOseyo/assets/119738419/1ebc8fd6-f200-4a30-a9d6-770931d508fe)](https://docs.google.com/presentation/d/1hm9K5nDFC9FWBCdyUJcuysFf_gDea3Rbd2zguFKkt4A/edit?usp=sharing)
+
+### 블로그
+- 프로젝트를 경험하며 공부한 기록입니다.
+
+  [![hashnode](https://github.com/wowssun/jejuOseyo/assets/119738419/c95c2300-5109-4b94-b6c8-8964d396f915)]()
+
