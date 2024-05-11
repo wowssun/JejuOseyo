@@ -1,4 +1,4 @@
-package jejuOseyo.filter;
+package main.java.jejuOseyo.filter;
 
 import java.io.IOException;
 import javax.servlet.Filter;
