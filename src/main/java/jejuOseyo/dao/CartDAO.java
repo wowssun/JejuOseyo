@@ -31,9 +31,7 @@ public class CartDAO {
 		
 		 try {  // 쿼리를 실행하다가 예외가 발생할 수 있으니까 try/ catch문에다가 	// insert 쿼리문
 			   query = " INSERT INTO cart VALUES (SEQ_CART_cno.NEXTVAL, ? , ? , ? , ? , ?)";  // dao 쿼리문 수정 다시하기
-			   // SEQ_CART_cno.NEXTVAL,21,'UserFour','2023-08-08','2023-08-29', 3
-			   	   		  
-			   
+
 			   psmt = con.prepareStatement(query);
 			   psmt.setInt(1,cvo.getRvo().getRmNo());   				//   1. 숙소번호
 			   psmt.setString(2, cvo.getMvo().getMid());		    		//   2. mid
@@ -74,7 +72,6 @@ public class CartDAO {
 				  + " WHERE rnum > ? * ? ";
 			
 				 psmt = con.prepareStatement(query);  // 바인딩이 없으니 이것만 사용
-				//psmt = con.prepareStatement(query);
 			
 				  psmt.setString(1, mid);
 				  psmt.setDouble(2, amount);
@@ -218,7 +215,6 @@ public class CartDAO {
 				query = "SELECT COUNT(*) FROM cart WHERE mid = ?";
 			       
 				 psmt = con.prepareStatement(query);
-				// psmt = con.prepareStatement(query);
 			    
 			    psmt.setString(1, mid);
 				 

@@ -29,7 +29,6 @@ public class YeyakDAO {
 		public boolean payInsert(PaymentVO pvo) {
 			 try {  // 쿼리를 실행하다가 예외가 발생할 수 있으니까 try/ catch문에다가 	// insert 쿼리문
 				   query = " INSERT INTO payment VALUES ( ? , ? , ? , ? , SYSDATE ,'')";  // dao 쿼리문 수정 다시하기
-				   // SEQ_CART_cno.NEXTVAL,21,'UserFour','2023-08-08','2023-08-29', 3
 				   	   		  
 				   psmt = con.prepareStatement(query);
 				   
@@ -56,7 +55,6 @@ public class YeyakDAO {
 	public boolean yeInsert(YeyakVO yvo) {
 		 try {  // 쿼리를 실행하다가 예외가 발생할 수 있으니까 try/ catch문에다가 	// insert 쿼리문
 			   query = " INSERT INTO yeyak VALUES ( ?, ? , ? , ? , ? , ?, ?, ?)";  // dao 쿼리문 수정 다시하기
-			   // SEQ_CART_cno.NEXTVAL,21,'UserFour','2023-08-08','2023-08-29', 3
 			   	   		  
 			   psmt = con.prepareStatement(query);
 			   
@@ -105,7 +103,7 @@ public class YeyakDAO {
 				  + " WHERE rnum > ? * ? ";
 			
 			psmt = con.prepareStatement(query); // 바인딩이 없으니 이것만 사용
-				//psmt = con.prepareStatement(query);
+
 			
 				  psmt.setString(1, mid);
 				  psmt.setDouble(2, amount);
@@ -167,7 +165,6 @@ public class YeyakDAO {
 						  + " WHERE rnum > ? * ? ";
 				
 					psmt = con.prepareStatement(query);  // 바인딩이 없으니 이것만 사용
-					//psmt = con.prepareStatement(query);
 				
 					  psmt.setString(1, hid);
 					  psmt.setDouble(2, amount);
