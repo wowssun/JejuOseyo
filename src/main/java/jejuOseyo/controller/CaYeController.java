@@ -156,7 +156,6 @@ public class CaYeController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
-	//	response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -165,7 +164,6 @@ public class CaYeController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		String cmd =request.getRequestURI().substring(request.getContextPath().length());   // /cart/cartList.jsp
-	//	System.out.println(cmd);
 		session = request.getSession(); // 내장객체가 아니기 때문에 선언하고 써야한다.
 		
 		// 장바구니 등록
@@ -257,9 +255,7 @@ public class CaYeController extends HttpServlet {
 
 		// 장바구니 담기 (등록)
 		public void cartDamgiyo(HttpServletRequest request) throws UnsupportedEncodingException  {
-		
-			
-			//// SEQ_CART_cno.NEXTVAL,21,'UserFour','2023-08-08','2023-08-29', 3
+
 			 CartVO cvo = new CartVO();       // CartVO 객체 생성
 			 RoomVO rvo = new RoomVO();
 			 MemberVO mvo = new MemberVO();
@@ -296,7 +292,6 @@ public class CaYeController extends HttpServlet {
 		     else{
 		    	 session.setAttribute("msg", "장바구니 담기 실패!"); 
 		     }
-			 //&people=1&keyword=호텔스타
 
 			 String encodedKeyword = URLEncoder.encode(keyword, "UTF-8");
 			 
@@ -590,7 +585,7 @@ public class CaYeController extends HttpServlet {
 			 
 				// 담는다.
 				request.setAttribute("pageNum", pageNum);
-				request.setAttribute("yvo", ydao.yeSelect(yno));   //  cartVO cvo = cdao.select(cno);   
+				request.setAttribute("yvo", ydao.yeSelect(yno));
 										// cvo 객체에 담아서? select 불러오기  , forward나 redirct 하기 view 페이지로
 				url ="/yeyak/yeyakDetail.jsp";
 			
@@ -606,7 +601,7 @@ public class CaYeController extends HttpServlet {
 			 
 				// 담는다.
 				request.setAttribute("pageNum", pageNum);
-				request.setAttribute("yvo", ydao.yeSelect(yno));   //  cartVO cvo = cdao.select(cno);   
+				request.setAttribute("yvo", ydao.yeSelect(yno));
 										// cvo 객체에 담아서? select 불러오기  , forward나 redirct 하기 view 페이지로
 				url ="/yeyak/hoyeyakDetail.jsp";
 		}
@@ -734,4 +729,3 @@ public class CaYeController extends HttpServlet {
 		}
 		}
 }
-
