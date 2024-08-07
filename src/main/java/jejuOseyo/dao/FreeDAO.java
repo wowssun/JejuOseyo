@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jejuOseyo.util.DBConn;
 import jejuOseyo.vo.FreeVO;
 
 public class FreeDAO {
@@ -41,7 +40,7 @@ public class FreeDAO {
 					  + " where rnum > ? * ? ";
 			
 			
-				psmt = DBConn.getConnection().prepareStatement(query);  // 바인딩이 없으니 이것만 사용
+				psmt = con.prepareStatement(query);  // 바인딩이 없으니 이것만 사용
 				//psmt = con.prepareStatement(query);
 			
 			  psmt.setDouble(1, amount);
@@ -67,9 +66,7 @@ public class FreeDAO {
 			}
 		}catch (SQLException e) {
   			e.printStackTrace();
-  		}finally { 
-  		 DBConn.close(psmt, rs); // 사용한 코드가 rs와 psmt다. 이 두개를 닫기
-  		}	
+  		}
 		return fvoList;
 		
 	}
@@ -81,7 +78,7 @@ public class FreeDAO {
 		
 		try {
 		query = "SELECT * FROM Free WHERE free_No=?";    //쿼리문 아이디 조회하는
-		psmt = DBConn.getConnection().prepareStatement(query);// 실행할 prepared
+		psmt = con.prepareStatement(query);// 실행할 prepared
 		
 		psmt.setInt(1,freeNo); // 물음표 바인딩   // 여기서 넘어온 freeNo
 		
@@ -99,9 +96,6 @@ public class FreeDAO {
 		}
 		}catch (SQLException e) {
   			e.printStackTrace();
-  		}finally { 
-  			DBConn.close(psmt, rs);
-  		 
   		}
 		return fvo;
 	
@@ -114,7 +108,7 @@ public class FreeDAO {
 			query = "UPDATE Free SET FREE_HIT = FREE_HIT + 1 WHERE free_No = ?";  // 쿼리문 확인하기
 			   
 			   
-			   psmt = DBConn.getConnection().prepareStatement(query);
+			   psmt = con.prepareStatement(query);
 			
 			   psmt.setInt(1, freeNo);
 			  
@@ -122,8 +116,6 @@ public class FreeDAO {
 	
 	  		} catch (SQLException e) {
 	  			e.printStackTrace();
-	  		}finally {   
-	  		 DBConn.close(psmt);
 	  		}
 		  	
 	}
@@ -143,7 +135,7 @@ public class FreeDAO {
 				query += " WHERE " + type + " LIKE '%" + keyword + "%' ";
 			}
 		       
-		    psmt = DBConn.getConnection().prepareStatement(query);
+		    psmt = con.prepareStatement(query);
 			// psmt = con.prepareStatement(query);
 			 
 			 rs = psmt.executeQuery();
@@ -153,9 +145,7 @@ public class FreeDAO {
 			}
 		}catch (SQLException e) {
   			e.printStackTrace();
-  		}finally { 
-  		 DBConn.close(psmt, rs); // 사용한 코드가 rs와 psmt다. 이 두개를 닫기
-  		}			
+  		}
 		
 		return cnt;
 	}
@@ -168,7 +158,7 @@ public class FreeDAO {
 			   // 여기서 hit는 그냥 0으로 처리해놓는다.
 			   
 			   // 매개변수로 넘겨받은 데이터를 t_member 테이블에 저장
-			   psmt = DBConn.getConnection().prepareStatement(query);
+			   psmt = con.prepareStatement(query);
 			//(작성자,제목,내용,사용자ip)
 			   
 			   psmt.setString(1, fvo.getMid());
@@ -184,10 +174,7 @@ public class FreeDAO {
 				  return true; }
 		  		} catch (SQLException e) {
 		  			e.printStackTrace();
-		  		}finally {   
-		  		 DBConn.close(psmt);
 		  		}
-		  		// 그렇지 않으면  false 반환
 		  		return false;
 	}
 	
@@ -198,7 +185,7 @@ public class FreeDAO {
 			   
 			  // 매개변수로 넘겨받은 데이터를 t_member 테이블에 저장
 			   
-			   psmt = DBConn.getConnection().prepareStatement(query);
+			   psmt = con.prepareStatement(query);
 			
 			   psmt.setString(1, fvo.getMid());
 			   psmt.setString(2, fvo.getFreeTitle());
@@ -212,8 +199,6 @@ public class FreeDAO {
 				  return true; }
 		  		} catch (SQLException e) {
 		  			e.printStackTrace();
-		  		}finally {   
-		  		 DBConn.close(psmt);
 		  		}
 		  		// 그렇지 않으면  false 반환
 		  		return false;	  
@@ -226,7 +211,7 @@ public class FreeDAO {
 		 try {
 			  query = " DELETE FROM Free WHERE free_No = ? ";
 			  
-			  psmt = DBConn.getConnection().prepareStatement(query);
+			  psmt = con.prepareStatement(query);
 			  
 			  psmt.setInt(1,freeNo);
 			  
@@ -238,8 +223,6 @@ public class FreeDAO {
 					   }
 			  		} catch (SQLException e) {
 			  			e.printStackTrace();
-			  		}finally {   
-			  		 DBConn.close(psmt);
 			  		}
 			  		// 그렇지 않으면  false 반환
 			  		return false ;	   
@@ -248,4 +231,3 @@ public class FreeDAO {
 	
 	
 }
-

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jejuOseyo.vo.HostVO;
-import jejuOseyo.util.DBConn;
 
 public class HostDAO {
 
@@ -48,8 +47,6 @@ public class HostDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		} finally {
-			DBConn.close(pstmt);
 		}
 
 	}
@@ -69,8 +66,6 @@ public class HostDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt, rset);
 		}
 
 		return false;
@@ -94,8 +89,6 @@ public class HostDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt, rset);
 		}
 		return hid;
 	}
@@ -120,8 +113,6 @@ public class HostDAO {
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	    } finally {
-	        DBConn.close(pstmt, rset);
 	    }
 	    return hpw;
 	}
@@ -141,8 +132,6 @@ public class HostDAO {
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	    } finally {
-	        DBConn.close(pstmt);
 	    }
 	    return false;
 	}
@@ -176,9 +165,6 @@ public class HostDAO {
         } catch (SQLException e) {
            // TODO Auto-generated catch block
            e.printStackTrace();
-        }finally {
-           DBConn.close(pstmt, rset);
-           
         }
         return hvo; 
      }
@@ -202,8 +188,6 @@ public class HostDAO {
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	    } finally {
-	        DBConn.close(pstmt);
 	    }
 	    return false;
 	}
@@ -222,9 +206,6 @@ public class HostDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt);
-
 		}
 
 		return false;
@@ -281,8 +262,6 @@ public class HostDAO {
 	       } catch (SQLException e) {
 	          // TODO Auto-generated catch block
 	          e.printStackTrace();
-	       }finally {
-	          DBConn.close(pstmt, rset);
 	       }
 	    	
 	    	return hostList;
@@ -308,8 +287,6 @@ public class HostDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            DBConn.close(pstmt, rset);
         }
 
         return cnt;
@@ -364,8 +341,6 @@ public class HostDAO {
 	       } catch (SQLException e) {
 	          // TODO Auto-generated catch block
 	          e.printStackTrace();
-	       }finally {
-	          DBConn.close(pstmt, rset);
 	       }
 	    	
 	    	return hostRQList;
@@ -390,8 +365,6 @@ public class HostDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            DBConn.close(pstmt, rset);
         }
 
         return cnt;
@@ -429,9 +402,6 @@ public class HostDAO {
         } catch (SQLException e) {
            // TODO Auto-generated catch block
            e.printStackTrace();
-        }finally {
-           DBConn.close(pstmt, rset); //pstmt, rset close 호출
-           
         }
         return hvo; 
      }
@@ -455,8 +425,6 @@ public class HostDAO {
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	    } finally {
-	        DBConn.close(pstmt);
 	    }
 	    return false;
 	}
@@ -512,8 +480,6 @@ public class HostDAO {
 	       } catch (SQLException e) {
 	          // TODO Auto-generated catch block
 	          e.printStackTrace();
-	       }finally {
-	          DBConn.close(pstmt, rset);
 	       }
 	    	
 	    	return hostRJList;
@@ -540,8 +506,6 @@ public class HostDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            DBConn.close(pstmt, rset);
         }
 
         return cnt;

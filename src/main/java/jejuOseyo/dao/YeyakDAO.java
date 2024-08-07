@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jejuOseyo.util.DBConn;
 import jejuOseyo.vo.HostVO;
 import jejuOseyo.vo.MemberVO;
 import jejuOseyo.vo.PaymentVO;
@@ -43,8 +42,6 @@ public class YeyakDAO {
 					  return true; }
 			  		} catch (SQLException e) {
 			  			e.printStackTrace();
-			  		}finally {   
-			  		 DBConn.close(psmt);
 			  		}
 			  		// 그렇지 않으면  false 반환
 			return false;
@@ -73,8 +70,6 @@ public class YeyakDAO {
 				  return true; }
 		  		} catch (SQLException e) {
 		  			e.printStackTrace();
-		  		}finally {   
-		  		 DBConn.close(psmt);
 		  		}
 		  		// 그렇지 않으면  false 반환
 		return false;
@@ -300,8 +295,6 @@ public class YeyakDAO {
 				  return true; }
 		  		} catch (SQLException e) {
 		  			e.printStackTrace();
-		  		}finally {   
-		  		 DBConn.close(psmt);
 		  		}
 		//예약 여부 바꿔주는거랑 취소일시 update됨
 		return false;

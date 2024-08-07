@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jejuOseyo.util.DBConn;
 import jejuOseyo.vo.CartVO;
 import jejuOseyo.vo.MemberVO;
 import jejuOseyo.vo.RoomVO;
@@ -45,8 +44,6 @@ public class CartDAO {
 				  return true; }
 		  		} catch (SQLException e) {
 		  			e.printStackTrace();
-		  		}finally {   
-		  		 DBConn.close(psmt);
 		  		}
 		  		// 그렇지 않으면  false 반환
 		  		return false;
@@ -177,8 +174,6 @@ public class CartDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(psmt);
 		}
 		// 그렇지 않으면 false 반환
 		return false;
@@ -199,8 +194,6 @@ public class CartDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(psmt);
 		}
 		// 그렇지 않으면 false 반환
 		return false;

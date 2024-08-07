@@ -7,9 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import jejuOseyo.vo.MemberVO;
-import jejuOseyo.util.DBConn;
 
 public class MemberDAO {
 
@@ -49,8 +47,6 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		} finally {
-			DBConn.close(pstmt);
 		}
 
 	}
@@ -97,8 +93,6 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt, rset);
 		}
 
 		return false;
@@ -123,8 +117,6 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt, rset);
 		}
 		return mid;
 	}
@@ -146,8 +138,6 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt, rset);
 		}
 		return mpw;
 	}
@@ -166,13 +156,9 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt);
 		}
 		return false;
 	}
-	
-	
 
 	// 회원상세조회 --> 내 정보 보기, 회원상세조회(관리자)
 	public MemberVO select(String mid) {
@@ -201,13 +187,9 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt, rset);
-
 		}
 		return mvo;
 	}
-	
 	
 
 	// 정보수정
@@ -226,8 +208,6 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt);
 		}
 		return false;
 	}
@@ -248,9 +228,6 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt);
-
 		}
 
 		return false;
@@ -300,8 +277,6 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			DBConn.close(pstmt, rset);
 		}
 
 		return memList;
@@ -326,8 +301,6 @@ public class MemberDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            DBConn.close(pstmt, rset);
         }
 
         return cnt;
@@ -347,12 +320,7 @@ public class MemberDAO {
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	    } finally {
-	        DBConn.close(pstmt);
 	    }
 	    return false;
 	}
-	
-	
-
 }// DAO END
